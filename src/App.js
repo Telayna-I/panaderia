@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { CategoriesScreen, ProductScreen, ProductsScreen } from './Screens';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import { useFonts } from 'expo-font';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    const [loaded] = useFonts({
+        'Poppins-Black': require('../assets/Fonts/Poppins-Black.ttf'),
+        'Poppins-Bold': require('../assets/Fonts/Poppins-Bold.ttf'),
+        'Poppins-Italic': require('../assets/Fonts/Poppins-Italic.ttf'),
+        'Poppins-Light': require('../assets/Fonts/Poppins-Light.ttf'),
+        'Poppins-Regular': require('../assets/Fonts/Poppins-Regular.ttf'),
+    });
+
+    if (!loaded) {
+        return (
+            <View style={styles.container}>
+                <ActivityIndicator size="large" color="#000" />
+            </View>
+        );
+    }
+
+    return <CategoriesScreen />;
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
 });
