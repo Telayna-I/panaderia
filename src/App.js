@@ -1,6 +1,7 @@
 import { CategoriesScreen, ProductScreen, ProductsScreen } from './Screens';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { useFonts } from 'expo-font';
+import AppNavigator from './Navigation/Index';
 
 export default function App() {
     const [loaded] = useFonts({
@@ -19,7 +20,7 @@ export default function App() {
         );
     }
 
-    return <CategoriesScreen />;
+    return <AppNavigator />;
 }
 
 const styles = StyleSheet.create({
