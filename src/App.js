@@ -1,7 +1,7 @@
-import { CategoriesScreen, ProductScreen, ProductsScreen } from './Screens';
+import { CategoriesScreen, ProductScreen, ProductsScreen } from './screens';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { useFonts } from 'expo-font';
-import AppNavigator from './Navigation/Index';
+import AppNavigator from './navigation/Index';
 
 export default function App() {
     const [loaded] = useFonts({
