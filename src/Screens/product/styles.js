@@ -7,4 +7,8 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
+    title: {},
+    description: {},
+    weight: {},
+    price: {},
 });

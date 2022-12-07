@@ -32,8 +32,21 @@ const ShopNavigator = () => {
                 options={{ headerShown: true }}
                 component={CategoriesScreen}
             />
-            <Stack.Screen name="Products" component={ProductsScreen} />
-            <Stack.Screen name="Product" component={ProductScreen} />
+            <Stack.Screen
+                name="Products"
+                component={ProductsScreen}
+                options={({ route }) => ({
+                    title: route.params.title,
+                })}
+            />
+            <Stack.Screen
+                name="Product"
+                component={ProductScreen}
+                options={({ route }) => ({
+                    title: route.params.title,
+                    headerBackTitle: 'Back',
+                })}
+            />
         </Stack.Navigator>
     );
 };
