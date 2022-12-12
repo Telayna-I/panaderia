@@ -1,14 +1,16 @@
 import React from 'react';
 import { FlatList, SafeAreaView } from 'react-native';
 import CategoryItem from '../../components/CategoryItem/CategoryItem';
-import { CATEGORIES } from '../../constants/data/index';
-import { colors } from '../../constants/themes/colors';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCategory } from '../../store/actions';
 import { styles } from './styles';
 
 const CetegoriesScreen = ({ navigation }) => {
+    const categories = useSelector((state) => state.category.categories);
+    const dispatch = useDispatch();
     const onSelected = (item) => {
+        dispatch(selectCategory(item.id));
         navigation.navigate('Products', {
-            categoryId: item.id,
             title: item.title,
             color: item.color,
         });
@@ -18,7 +20,7 @@ const CetegoriesScreen = ({ navigation }) => {
     return (
         <SafeAreaView>
             <FlatList
-                data={CATEGORIES}
+                data={categories}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id.toString()}
                 style={styles.containerList}
