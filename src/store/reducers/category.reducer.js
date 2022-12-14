@@ -14,16 +14,11 @@ const categoryReducer = (state = initialState, action) => {
             const indexCategory = state.categories.findIndex(
                 (category) => category.id === action.categoryId
             );
-
-            if (indexCategory === -1) {
-                return state;
-            }
-
+            if (indexCategory === -1) return state;
             return {
                 ...state,
                 selected: state.categories[indexCategory],
             };
-
         default:
             return state;
     }

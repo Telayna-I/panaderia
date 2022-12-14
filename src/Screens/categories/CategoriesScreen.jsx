@@ -3,11 +3,11 @@ import { FlatList, SafeAreaView } from 'react-native';
 import CategoryItem from '../../components/CategoryItem/CategoryItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCategory } from '../../store/actions';
-import { styles } from './styles';
 
 const CetegoriesScreen = ({ navigation }) => {
     const categories = useSelector((state) => state.category.categories);
     const dispatch = useDispatch();
+
     const onSelected = (item) => {
         dispatch(selectCategory(item.id));
         navigation.navigate('Products', {
@@ -23,7 +23,7 @@ const CetegoriesScreen = ({ navigation }) => {
                 data={categories}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id.toString()}
-                style={styles.containerList}
+                // style={styles.containerList}
             />
         </SafeAreaView>
     );

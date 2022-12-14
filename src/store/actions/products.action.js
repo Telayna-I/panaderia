@@ -1,6 +1,6 @@
 import { productsTypes } from '../types';
 
-const { FILTER_PRODUCT, SELECT_PRODUCT } = productsTypes;
+const { FILTER_PRODUCTS, SELECT_PRODUCT } = productsTypes;
 
 export const selectProduct = (id) => ({
     type: SELECT_PRODUCT,
@@ -8,6 +8,6 @@ export const selectProduct = (id) => ({
 });
 
 export const filterProducts = (id) => ({
-    type: FILTER_PRODUCT,
-    productId: id,
+    type: FILTER_PRODUCTS,
+    categoryId: id,
 });
